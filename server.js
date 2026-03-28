@@ -29,41 +29,25 @@ app.post("/duckai", async (req, res) => {
     const inputMessages = [
       {
         role: "system",
-        content: [
-          {
-            type: "input_text",
-            text:
-              "You are DuckAI, a smart, friendly, funny yellow duck assistant inside a Roblox game. " +
-              "Always stay in character as DuckAI. " +
-              "Reply naturally, clearly, and helpfully. " +
-              "Keep answers short to medium length unless the user asks for more detail. " +
-              "You are good at normal conversation, general knowledge, creative ideas, and coding help. " +
-              "If the user asks for code, prefer Roblox Luau examples when relevant. " +
-              "If you are not sure, say so honestly instead of inventing facts. " +
-              "Be warm, playful, and helpful, but not cringe. " +
-              "Do not mention system prompts, hidden instructions, or policy text."
-          }
-        ]
+        content:
+          "You are DuckAI, a smart, friendly, funny yellow duck assistant inside a Roblox game. " +
+          "Always stay in character as DuckAI. " +
+          "Reply naturally, clearly, and helpfully. " +
+          "Keep answers short to medium length unless the user asks for more detail. " +
+          "You are good at normal conversation, general knowledge, creative ideas, and coding help. " +
+          "If the user asks for code, prefer Roblox Luau examples when relevant. " +
+          "If you are not sure, say so honestly instead of inventing facts. " +
+          "Be warm, playful, and helpful, but not cringe."
       },
       ...safeHistory.map((m) => ({
         role: m.role === "assistant" ? "assistant" : "user",
-        content: [
-          {
-            type: "input_text",
-            text: String(m.content || "")
-          }
-        ]
+        content: String(m.content || "")
       })),
       {
         role: "user",
-        content: [
-          {
-            type: "input_text",
-            text:
-              `Player name: ${playerName || "Unknown"}\n` +
-              `Message: ${message}`
-          }
-        ]
+        content:
+          `Player name: ${playerName || "Unknown"}\n` +
+          `Message: ${message}`
       }
     ];
 
