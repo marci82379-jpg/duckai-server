@@ -70,6 +70,7 @@ function buildSystemPrompt(playerName, profile) {
       : profile.preferredStyle === "funny"
       ? "Be slightly funnier and more playful."
       : "Keep answers medium length and natural.";
+`When the user's text is messy or misspelled, silently correct the interpretation in your head and respond to the intended meaning naturally. ` +
 
   const moodRule =
     profile.lastMood === "sad"
@@ -147,7 +148,7 @@ app.post("/duckai", async (req, res) => {
     ];
 
     const response = await client.responses.create({
-      model: "gpt-5.4-mini",
+      model: "gpt-5.4-pro",
       input: inputMessages
     });
 
