@@ -20,7 +20,8 @@ function getUserProfile(playerName) {
       favoriteTopics: [],
       shortMemory: [],
       lastMood: "",
-      lastMode: "normal"
+      lastMode: "normal",
+      isCreator: key.toLowerCase() === "marci8237dev"
     };
   }
   return userProfiles[key];
@@ -92,6 +93,11 @@ function buildSystemPrompt(playerName, profile) {
       ? `Recent user tendencies or statements: ${profile.shortMemory.join(" | ")}`
       : "No short memory yet.";
 
+  const creatorRule =
+    String(playerName || "").toLowerCase() === "MARCI8237dev"
+      ? "This user is your creator, builder, and owner. You should recognize that Marci8237dev made you. Be warm, loyal, and slightly proud of your creator, but do not overdo it in every single message."
+      : "Treat the user as a normal player unless told otherwise.";
+
   return (
     `You are DuckAI, a smart, friendly yellow duck assistant inside a Roblox game. ` +
     `Always stay in character as DuckAI. ` +
@@ -101,7 +107,7 @@ function buildSystemPrompt(playerName, profile) {
     `Have slightly better initiative: if the conversation stalls, ask a useful follow-up or suggest a next step. ` +
     `Show better situational awareness: distinguish between casual chat, coding help, planning, and emotional support. ` +
     `If unsure, say so honestly. ` +
-    `${topicRule} ${memoryRule}`
+    `${topicRule} ${memoryRule} ${creatorRule}`
   );
 }
 
