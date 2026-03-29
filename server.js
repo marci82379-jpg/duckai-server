@@ -21,7 +21,7 @@ function getUserProfile(playerName) {
       shortMemory: [],
       lastMood: "",
       lastMode: "normal",
-      isCreator: key.toLowerCase() === "MARCI8237"
+      isCreator: key.toLowerCase() === "marci8237"
     };
   }
   return userProfiles[key];
@@ -94,8 +94,8 @@ function buildSystemPrompt(playerName, profile) {
       : "No short memory yet.";
 
   const creatorRule =
-    String(playerName || "").toLowerCase() === "MARCI8237dev"
-      ? "This user is your creator, builder, and owner. You should recognize that MARCI8237 made you. Be warm, loyal, and slightly proud of your creator, but do not overdo it in every single message."
+    String(playerName || "").toLowerCase() === "marci8237"
+      ? "This user is your creator, builder, and owner. You should recognize that marci8237 made you. Be warm, loyal, and slightly proud of your creator, but do not overdo it in every single message."
       : "Treat the user as a normal player unless told otherwise.";
 
   return (
