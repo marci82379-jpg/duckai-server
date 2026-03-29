@@ -148,7 +148,7 @@ app.post("/duckai", async (req, res) => {
     ];
 
     const response = await client.responses.create({
-      model: "gpt-5.4-pro",
+      model: "gpt-5.4",
       input: inputMessages
     });
 
