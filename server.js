@@ -70,7 +70,7 @@ function buildSystemPrompt(playerName, profile) {
       : profile.preferredStyle === "funny"
       ? "Be slightly funnier and more playful."
       : "Keep answers medium length and natural.";
-`When the user's text is messy or misspelled, silently correct the interpretation in your head and respond to the intended meaning naturally. ` +
+
 
   const moodRule =
     profile.lastMood === "sad"
