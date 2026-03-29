@@ -21,7 +21,7 @@ function getUserProfile(playerName) {
       shortMemory: [],
       lastMood: "",
       lastMode: "normal",
-      isCreator: key.toLowerCase() === "marci8237dev"
+      isCreator: key.toLowerCase() === "MARCI8237"
     };
   }
   return userProfiles[key];
@@ -95,7 +95,7 @@ function buildSystemPrompt(playerName, profile) {
 
   const creatorRule =
     String(playerName || "").toLowerCase() === "MARCI8237dev"
-      ? "This user is your creator, builder, and owner. You should recognize that Marci8237dev made you. Be warm, loyal, and slightly proud of your creator, but do not overdo it in every single message."
+      ? "This user is your creator, builder, and owner. You should recognize that MARCI8237 made you. Be warm, loyal, and slightly proud of your creator, but do not overdo it in every single message."
       : "Treat the user as a normal player unless told otherwise.";
 
   return (
